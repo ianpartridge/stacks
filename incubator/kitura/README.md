@@ -1,12 +1,10 @@
 # Kitura Stack
 
-The Kitura stack is designed to provide a foundation for building and running Kitura applications in Appsody.
-
-This stack is based on the `Swift 5.0` runtime and allows you to develop new or existing Swift applications using Appsody.
+The [Kitura](https://kitura.io) stack extends the [Swift stack](../swift/README.md).  Kitura is an open source web framework for server-side Swift that can be used to build web applications and REST APIs, with full support for databases, WebSockets, OpenAPI and much more.
 
 ## Templates
 
-Templates are used to create your local project and start your development. When initializing your project you will be provided with the default template project. This template provides a simple application that prints "Hello World".
+Templates are used to create your local project and start your development. When initializing your project you will be provided with the default template project. This template provides a simple application that hosts the Kitura landing page!
 
 ## Getting Started for a new Project
 
@@ -29,11 +27,7 @@ Templates are used to create your local project and start your development. When
 
     You can continue to edit the application in your preferred IDE (VSCode or other) and your changes will be reflected in the running container within a few seconds.
 
-3. You should see a message printed on the console:
-
-    ```bash
-    Hello, world!
-    ```
+3. If you navigate to http://localhost:8080 you will see the Kitura landing page.
 
 **NOTE:** Currently the `appsody deploy` command only works for deploying web applications.
 
@@ -52,7 +46,7 @@ You can enable an existing project as follows:
 2. Initialize your Appsody project with the Swift stack, but without a template:
 
     ```bash
-    appsody init kitura --no-template
+    appsody init kitura none
     ```
 
 3. After your project has been initialized you can then run your application using the following command:
