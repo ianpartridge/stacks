@@ -1,4 +1,3 @@
-import Configuration
 import LoggerAPI
 import HeliumLogger
 
@@ -8,12 +7,9 @@ import HeliumLogger
 ///
 /// If no `LOG_LEVEL` is specified, the default level of `info` will be used.
 ///
-func initializeLogging() {
-    let manager = ConfigurationManager()
-    manager.load(.environmentVariables)
-
+func initializeLogging(value: String?) {
     let logLevel: LoggerMessageType
-    switch (manager["LOG_LEVEL"] as? String)?.lowercased() {
+    switch value?.lowercased() {
     case "error":
         logLevel = .error
     case "warning":
