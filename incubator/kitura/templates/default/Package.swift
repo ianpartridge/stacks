@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "simple",
+    name: "default",
     dependencies: [
       .package(url: "https://github.com/IBM-Swift/Kitura.git", .upToNextMinor(from: "2.8.0")),
       .package(url: "https://github.com/IBM-Swift/HeliumLogger.git", from: "1.7.1"),
@@ -11,7 +11,7 @@ let package = Package(
       .package(url: "https://github.com/IBM-Swift/Health.git", from: "1.0.0"),
     ],
     targets: [
-      .target(name: "simple", dependencies: [ .target(name: "Application") ]),
+      .target(name: "default", dependencies: [ .target(name: "Application") ]),
       .target(name: "Application", dependencies: [ "Kitura", "HeliumLogger", "CloudEnvironment","SwiftMetrics", "Health", 
 
       ]),

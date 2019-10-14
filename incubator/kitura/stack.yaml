@@ -7,4 +7,4 @@ maintainers:
   - name: Ian Partridge
     email: i.partridge@uk.ibm.com
     github-id: ianpartridge
-default-template: simple
+default-template: default

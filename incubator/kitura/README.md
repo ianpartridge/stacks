@@ -15,9 +15,9 @@ Templates are used to create your local project and start your development. When
     ```bash
     mkdir my-project
     cd my-project
-    appsody init swift
+    appsody init kitura
     ```
-    This will initialize a Swift project using the default template.
+    This will initialize a Kitura project using the default template.
 
 2. After your project has been initialized you can then run your application using the following command:
 
@@ -39,7 +39,7 @@ Templates are used to create your local project and start your development. When
 
 ## Enabling an existing Project
 
-The Swift stack can be used with an existing server-side Swift project in order to provide an iterative containerized development and test environment, and to "cloud package" it into an optimized production Docker container.
+The Kitura stack can be used with an existing Kitura project in order to provide an iterative containerized development and test environment, and to "cloud package" it into an optimized production Docker container.
 
 You can enable an existing project as follows:
 
@@ -52,7 +52,7 @@ You can enable an existing project as follows:
 2. Initialize your Appsody project with the Swift stack, but without a template:
 
     ```bash
-    appsody init swift --no-template
+    appsody init kitura --no-template
     ```
 
 3. After your project has been initialized you can then run your application using the following command:
