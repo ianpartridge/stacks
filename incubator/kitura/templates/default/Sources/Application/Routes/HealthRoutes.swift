@@ -1,10 +1,11 @@
-import LoggerAPI
 import Health
-import KituraContracts
+import Kitura
 
-func initializeHealthRoutes(app: App) {
+public let health = Health()
+
+func initializeHealthRoutes(router: Router) {
     
-    app.router.get("/health") { (respondWith: (Status?, RequestError?) -> Void) -> Void in
+    router.get("/health") { (respondWith: (Status?, RequestError?) -> Void) -> Void in
         if health.status.state == .UP {
             respondWith(health.status, nil)
         } else {

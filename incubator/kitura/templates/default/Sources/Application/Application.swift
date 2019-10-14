@@ -1,33 +1,33 @@
 import Foundation
 import Kitura
-import LoggerAPI
 import Configuration
-import CloudEnvironment
-import KituraContracts
-import Health
 
 public let projectPath = ConfigurationManager.BasePath.project.path
-public let health = Health()
 
 public class App {
     let router = Router()
-    let cloudEnv = CloudEnv()
+    let port: Int
 
-    public init() throws {
+    public init() {
+        // Load configuration
+        let manager = ConfigurationManager()
+        manager.load(.environmentVariables)
+
+        // Configure port
+        self.port = Int(manager["PORT"] as? String ?? "8080") ?? 8080
+
         // Configure logging
-        initializeLogging()
+        initializeLogging(value: manager["LOG_LEVEL"] as? String)
+
         // Run the metrics initializer
         initializeMetrics(router: router)
+
+        // Add health monitoring endpoint
+        initializeHealthRoutes(router: router)
     }
 
-    func postInit() throws {
-        // Endpoints
-        initializeHealthRoutes(app: self)
-    }
-
-    public func run() throws {
-        try postInit()
-        Kitura.addHTTPServer(onPort: cloudEnv.port, with: router)
-        Kitura.run()
+    public func run() {
+        Kitura.addHTTPServer(onPort: port, with: router)
+        Kitura.run(exitOnFailure: true)
     }
 }
